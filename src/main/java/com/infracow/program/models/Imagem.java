@@ -12,18 +12,18 @@ public class Imagem {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 
 	private String nome;
 	private String metadados;
 	private Date data_captura;
 	private String extensao;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -58,7 +58,5 @@ public class Imagem {
 	public void setExtensao(String extensao) {
 		this.extensao = extensao;
 	}
-	
-	
 
 }

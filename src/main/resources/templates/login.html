@@ -1,11 +1,33 @@
 <!--HEADER -->
-<div th:insert="fragments/header"></div>
+<div th:insert="~{fragments/header}"></div>
+
 <!-- CONTENT -->
 <div class="container p-3">
 	<h1 class="text-center">InfraCow</h1>
-	<hr>	
-	<h2>Login</h2>
+	<hr>
+	<div class="container shadow pt-5 pb-5">
+		<h2 class="text-center">Login</h2>
+		<form action="api/" method="post">
+			<div class="d-flex flex-column row g-2 align-items-center">
+				<div class="col-4">
+					<label for="">Insira o nome de usuário</label>
+					<br>
+					<input class="form-control" type="text" name="userNome" id="userNomeInput"
+						placeholder="Insira o nome de usuário" required>
+				</div>
+				<div class="col-4 mt-5">
+					<label for="">Insira a senha</label>
+					<br>
+					<input class="form-control" type="password" name="useSenha" id="userSenhaInput"
+						placeholder="Insira a senha" required>
+				</div>
+				<div class="text-center mt-5">
+					<input class="btn btn-danger" type="submit" value="Login">
+				</div>
+			</div>
+		</form>
+	</div>
 </div>
 
 <!-- FOOTER -->
-<div th:insert="fragments/footer"></div>
+<div th:insert="~{fragments/footer}"></div>

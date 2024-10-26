@@ -2,12 +2,14 @@ package com.infracow.program.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
-public class ImageController {
+public class LoginController {
 
-	@GetMapping("/imageminsert")
-	public String imagemInsert() {
-		return "imagemCadastro";
-	}		
+	@GetMapping("/")
+	public String loginPage() {
+		return "login";
+	}	
 }

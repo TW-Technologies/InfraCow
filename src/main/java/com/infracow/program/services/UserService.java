@@ -10,7 +10,7 @@ import com.infracow.program.repositories.UserRepository;
 public class UserService {
 
 	@Autowired
-	UserRepository repository;
+	private UserRepository repository;
 	
 	public Usuario addUser(Usuario user) {
 		return repository.save(user);

@@ -1,5 +1,6 @@
 package com.infracow.program.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,6 +13,8 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
+	
+	@Column(name = "username")
 	private String userName;
 	private String password;
 
@@ -22,6 +25,7 @@ public class Usuario {
 		super();
 		this.id = id;
 		this.nome = nome;
+				
 		this.userName = userName;
 		this.password = password;
 	}

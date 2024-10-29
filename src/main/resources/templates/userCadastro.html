@@ -1,0 +1,28 @@
+<!--HEADER -->
+<div th:insert="fragments/header"></div>
+<!-- CONTENT -->
+<div class="container p-3">
+	<h1 class="text-center">InfraCow</h1>
+	<hr>
+	<h2>Cadastro</h2>
+	<div class="container shadow pt-5 pb-5">
+		<form action="#" th:action="@{/adduser}" th:object="${usuario}" method="post">
+		    <div>
+		        <label for="nome">Insira o nome:</label>
+		        <input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
+		    </div>
+		    <!--<div>
+		        <label for="userName">Insira o nome de usuário:</label>
+		        <input type="text" th:field="*{userName}" id="userName" placeholder="Nome de Usuário">
+		    </div>
+		    <div>
+		        <label for="password">Insira a senha:</label>
+		        <input type="password" th:field="*{password}" id="password" placeholder="Senha">
+		    </div> -->
+		    <input class="btn btn-success" type="submit" value="Cadastrar">
+		</form>
+	</div>
+</div>
+
+<!-- FOOTER -->
+<div th:insert="fragments/footer"></div>

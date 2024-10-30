@@ -9,7 +9,7 @@ public class ApplicationStartupListener {
 	
 	@EventListener(ApplicationReadyEvent.class)
 	public void onApplicationReady() {
-		System.out.println("Aplicação Iniciada  na porta: localhost:8080/user/");
+		System.out.println("Aplicação Iniciada  na porta: http://localhost:8080/user/");
 	}
 
 }

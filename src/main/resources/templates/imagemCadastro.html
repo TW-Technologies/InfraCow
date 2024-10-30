@@ -5,19 +5,19 @@
 	<h1 class="text-center">InfraCow</h1>
 	<hr>
 	<div class="container shadow pt-5 pb-5">
-		<form action="api/" method="post">
+		<form action="#" th:action="@{/imagem/addImagem}" method="post" enctype="multipart/form-data">
 			<div class="d-flex flex-column">
 				<div>
-					<label for="">Insira a imagem Termográfica</label>
+					<label for="">Insira a imagem Termográfica:</label>
 					<br>
-					<input type="file" src="" alt="" accept="image/png, image/gif, image/jpeg">
+					<input type="file" name="imagem" alt="Input For Images" accept="image/*" class="form-control" required>
 				</div>
 				<div>
-					<label for="">Insira a imagem Termográfica</label>
+					<label for="">Detalhes Extras sobre comportamento do animal:</label>
 					<br>
-					<input type="file" src="" alt="Image Input" accept="image/png, image/gif, image/jpeg">
+					<input type="text" class="form-control">
 				</div>
-				<input class="btn btn-danger" type="submit" value="Enviar Imagem para análise">
+				<input class="btn btn-danger mt-5" type="submit" value="Enviar Imagem para análise">
 			</div>
 		</form>
 	</div>

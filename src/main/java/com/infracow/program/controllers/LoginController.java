@@ -20,7 +20,7 @@ public class LoginController {
 	@Autowired
 	private UserService service;
 	
-	@GetMapping("")
+	@GetMapping("/")
 	public String loginPage() {
 		return "userLogin";
 	}	
@@ -36,6 +36,6 @@ public class LoginController {
         }
        
 		service.addUser(usuario);
-		return "redirect:/user";
+		return "redirect:/user/";
 	}
 }

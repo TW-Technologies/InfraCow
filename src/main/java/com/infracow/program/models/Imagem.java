@@ -1,5 +1,6 @@
 package com.infracow.program.models;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
@@ -19,7 +20,7 @@ public class Imagem {
 	private String localRegistro;
 	private String extensao;
 	private String metadados;
-	private Date dataCaptura;
+	private LocalDateTime dataCaptura;
 	private String informacoesAdicionaisAnimal;
 	private String resultadosAnalise;
 	
@@ -28,7 +29,7 @@ public class Imagem {
 	
 
 	public Imagem(Long id, int[][] mapaDeCalor, String nome, String localRegistro, String extensao, String metadados,
-			Date dataCaptura, String informacoesAdicionaisAnimal, String resultadosAnalise) {
+			LocalDateTime dataCaptura, String informacoesAdicionaisAnimal, String resultadosAnalise) {
 		this.id = id;
 		this.mapaDeCalor = mapaDeCalor;
 		this.nome = nome;
@@ -103,12 +104,12 @@ public class Imagem {
 	}
 
 
-	public Date getDataCaptura() {
+	public LocalDateTime getDataCaptura() {
 		return dataCaptura;
 	}
 
 
-	public void setDataCaptura(Date dataCaptura) {
+	public void setDataCaptura(LocalDateTime dataCaptura) {
 		this.dataCaptura = dataCaptura;
 	}
 

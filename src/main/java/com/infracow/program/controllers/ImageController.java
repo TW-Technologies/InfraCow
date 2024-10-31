@@ -67,7 +67,7 @@ public class ImageController {
 			imagem.setInformacoesAdicionaisAnimal(comentarioExtra);
 			imagem.setMetadados("width: " + String.valueOf(largura) + "heigh: " + String.valueOf(altura));
 
-			// service.addImagem(imagem);
+			service.addImagem(imagem);
 		} else {
 			return "redirect:/imagem/cadastroImagem";
 		}

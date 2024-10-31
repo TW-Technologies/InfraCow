@@ -1,8 +1,8 @@
 package com.infracow.program.models;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,7 +21,9 @@ public class Imagem {
 	private String extensao;
 	private String metadados;
 	private LocalDateTime dataCaptura;
+	
 	private String informacoesAdicionaisAnimal;
+	
 	private String resultadosAnalise;
 	
 	public Imagem() {		

@@ -22,55 +22,61 @@ import com.infracow.program.services.ImagemService;
 @RequestMapping("/imagem")
 public class ImageController {
 
-	@Autowired
-	private ImagemService service;
+    @Autowired
+    private ImagemService service;
 
-	@GetMapping("/cadastroImagem")
-	public String imagemInsert() {
-		return "imagemCadastro";
-	}
+    //Path of Images Folder
+    String folderPath = "src/main/resources/images/analyses";
 
-	@PostMapping("/addImagem")
-	public String addImagem(@ModelAttribute ImagemDTO imagemDTO) throws IOException {
+    @GetMapping("/cadastroImagem")
+    public String imagemInsert() {
+        return "imagemCadastro";
+    }
 
-		MultipartFile imageFile = imagemDTO.getArquivo(); // Captura o arquivo de imagem do DTO
-		String comentarioExtra = imagemDTO.getComentarioExtra();
+    @PostMapping("/addImagem")
+    public String addImagem(@ModelAttribute ImagemDTO imagemDTO) throws IOException {
 
-		if (imageFile == null) {
-			return "redirect:/imagem/cadastroImagem";
-		}
+        MultipartFile imageFile = imagemDTO.getArquivo(); // Captura o arquivo de imagem do DTO
+        String comentarioExtra = imagemDTO.getComentarioExtra();
 
-		if (!imageFile.isEmpty()) {
+        if (imageFile == null) {
+            return "redirect:/imagem/cadastroImagem";
+        }
 
-			String fileName = imageFile.getOriginalFilename().substring(0, imageFile.getOriginalFilename().lastIndexOf("."));			
-			String contentType = imageFile.getContentType();
-			String extensao = imageFile.getOriginalFilename()
-					.substring(imageFile.getOriginalFilename().lastIndexOf(".") + 1);
-			long fileSize = imageFile.getSize();
-			LocalDateTime dataCaptura = LocalDateTime.now();
-			// Metadados - Width and Height
-			BufferedImage bfImage = ImageIO.read(imageFile.getInputStream());
-			int largura = 0;
-			int altura = 0;
-			if (bfImage != null) {
-				largura = bfImage.getWidth();
-				altura = bfImage.getHeight();
-			}
+        if (!imageFile.isEmpty()) {
+            String fileName = imageFile.getOriginalFilename().substring(0, imageFile.getOriginalFilename().lastIndexOf("."));
+            String contentType = imageFile.getContentType();
+            String extensao = imageFile.getOriginalFilename().substring(imageFile.getOriginalFilename().lastIndexOf(".") + 1);
 
-			System.out.println();
+            //Tamanho da Imagem em Bytes
+            long fileSize = imageFile.getSize();
+            //Data e Horario do upload
+            LocalDateTime dataCaptura = LocalDateTime.now();
+            // Metadados - Width and Height
+            BufferedImage bfImage = ImageIO.read(imageFile.getInputStream());
+            int largura = 0;
+            int altura = 0;
+            if (bfImage != null) {
+                largura = bfImage.getWidth();
+                altura = bfImage.getHeight();
+            }
 
-			Imagem imagem = new Imagem();
-			imagem.setNome(fileName);
-			imagem.setExtensao(extensao);
-			imagem.setDataCaptura(dataCaptura);
-			imagem.setInformacoesAdicionaisAnimal(comentarioExtra);
-			imagem.setMetadados("width: " + String.valueOf(largura) + "heigh: " + String.valueOf(altura));
 
-			service.addImagem(imagem);
-		} else {
-			return "redirect:/imagem/cadastroImagem";
-		}
-		return "redirect:/imagem/cadastroImagem";
 
-	}
+            //Instanciar imagem e salvar os dados para o banco de dados
+            Imagem imagem = new Imagem();
+            imagem.setNome(fileName);
+            imagem.setExtensao(extensao);
+            imagem.setDataCaptura(dataCaptura);
+            imagem.setInformacoesAdicionaisAnimal(comentarioExtra);
+            imagem.setMetadados("width: " + String.valueOf(largura) + "heigh: " + String.valueOf(altura));
+
+            //Passa o caminho da pasta e a imagem
+            service.addImagem(folderPath, imagem, imageFile);
+        } else {
+            return "redirect:/imagem/cadastroImagem";
+        }
+        return "redirect:/imagem/cadastroImagem";
+
+    }
 }

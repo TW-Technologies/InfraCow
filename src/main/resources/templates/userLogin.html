@@ -7,10 +7,10 @@
 	<hr>
 	<div class="container shadow pt-5 pb-5">
 		<h2 class="text-center">Login</h2>
-		<form action="api/" method="post">
+		<form action="#" th:action="@{/user/cadastroUser}" method="get">
 			<div class="d-flex flex-column row g-2 align-items-center">
 				<div class="col-4">
-					<label for="">Insira o nome de usuário</label>
+					<label for="userNome">Insira o nome de usuário</label>
 					<br>
 					<input class="form-control" type="text" name="userNome" id="userNomeInput"
 						placeholder="Insira o nome de usuário" required>
@@ -18,12 +18,13 @@
 				<div class="col-4 mt-5">
 					<label for="">Insira a senha</label>
 					<br>
-					<input class="form-control" type="password" name="useSenha" id="userSenhaInput"
+					<input class="form-control" type="password" name="userSenha" id="userSenhaInput"
 						placeholder="Insira a senha" required>
 				</div>
 				<div class="text-center mt-5">
-					<input class="btn btn-danger" type="submit" value="Login">
+					<input class="btn btn-primary" type="submit" value="Login">
 				</div>
+				<span class="text-center">Não possui uma conta? <a href="#" th:href="@{/user/cadastroUser}">Cadastre-se</a></span>
 			</div>
 		</form>
 	</div>

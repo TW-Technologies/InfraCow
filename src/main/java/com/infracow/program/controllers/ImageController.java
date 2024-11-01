@@ -42,7 +42,7 @@ public class ImageController {
 
 		if (!imageFile.isEmpty()) {
 
-			String fileName = imageFile.getOriginalFilename();
+			String fileName = imageFile.getOriginalFilename().substring(0, imageFile.getOriginalFilename().lastIndexOf("."));			
 			String contentType = imageFile.getContentType();
 			String extensao = imageFile.getOriginalFilename()
 					.substring(imageFile.getOriginalFilename().lastIndexOf(".") + 1);

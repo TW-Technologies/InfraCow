@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.infracow.program.models.Imagem;
 import com.infracow.program.models.dto.ImagemDTO;
 import com.infracow.program.services.ImagemService;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/imagem")
@@ -62,7 +63,6 @@ public class ImageController {
             }
 
 
-
             //Instanciar imagem e salvar os dados para o banco de dados
             Imagem imagem = new Imagem();
             imagem.setNome(fileName);
@@ -77,6 +77,12 @@ public class ImageController {
             return "redirect:/imagem/cadastroImagem";
         }
         return "redirect:/imagem/cadastroImagem";
+    }
 
+    @GetMapping("/images")
+    public ModelAndView images(){
+        ModelAndView model = new ModelAndView("images");
+//        model.addObject("imagens",service.getImages());
+        return model;
     }
 }

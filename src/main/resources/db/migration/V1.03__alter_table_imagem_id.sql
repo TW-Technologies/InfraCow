@@ -1,1 +1,0 @@
-ALTER TABLE imagem MODIFY COLUMN imagem.id INT auto_increment NOT NULL; 

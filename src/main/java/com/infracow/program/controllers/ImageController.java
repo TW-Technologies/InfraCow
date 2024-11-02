@@ -81,8 +81,9 @@ public class ImageController {
 
     @GetMapping("/images")
     public ModelAndView images(){
-        ModelAndView model = new ModelAndView("images");
-//        model.addObject("imagens",service.getImages());
+        ModelAndView model = new ModelAndView("imagens");
+        model.addObject("imagens", service.getImages());
+        model.addObject("url", folderPath);
         return model;
     }
 }

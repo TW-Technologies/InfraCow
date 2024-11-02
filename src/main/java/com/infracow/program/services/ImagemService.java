@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 
 @Service
 public class ImagemService {
@@ -33,5 +34,8 @@ public class ImagemService {
         return repository.save(obj);
     }
 
+    public List<Imagem> getImages(){
+        return repository.findAll();
+    }
 
 }

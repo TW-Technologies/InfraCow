@@ -14,20 +14,20 @@ public class Usuario {
 	private Long id;
 	private String nome;
 	
-	@Column(name = "username")
-	private String userName;
-	private String password;
+	@Column(name = "email")
+	private String email;
+	private String senha;
 
 	public Usuario() {
 	}
 
-	public Usuario(Long id, String nome, String userName, String password) {
+	public Usuario(Long id, String nome, String email, String senha) {
 		super();
 		this.id = id;
 		this.nome = nome;
 				
-		this.userName = userName;
-		this.password = password;
+		this.email = email;
+		this.senha = senha;
 	}
 
 	public Long getId() {
@@ -46,20 +46,20 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getemail() {
+		return email;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setemail(String email) {
+		this.email = email;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getsenha() {
+		return senha;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setsenha(String senha) {
+		this.senha = senha;
 	}
 
 }

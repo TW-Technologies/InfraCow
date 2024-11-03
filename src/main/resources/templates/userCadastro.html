@@ -14,14 +14,14 @@
 					<input class="form-control" type="text" th:field="*{nome}" id="nome" placeholder="Nome">
 				</div>
 				<div class="col-4">
-					<label for="userName">Insira o nome de usuário:</label>
+					<label for="email">Insira o nome de usuário:</label>
 					<br>
-					<input class="form-control" type="text" th:field="*{userName}" id="userName" placeholder="Nome de Usuário">
+					<input class="form-control" type="text" th:field="*{email}" id="email" placeholder="Nome de Usuário">
 				</div>
 				<div class="col-4">
-					<label for="password">Insira a senha:</label>
+					<label for="senha">Insira a senha:</label>
 					<br>
-					<input class="form-control" type="password" th:field="*{password}" id="password" placeholder="Senha">
+					<input class="form-control" type="text" th:field="*{senha}" minlength="8" id="senha" placeholder="Senha">
 				</div>
 				<div class="text-center mt-5">
 					<input class="btn btn-success" type="submit" value="Cadastrar">

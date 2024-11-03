@@ -4,6 +4,9 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### Images Folder ###
+src/main/resources/images/analyses/
+
 ### STS ###
 .apt_generated
 .classpath

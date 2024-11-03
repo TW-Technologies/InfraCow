@@ -15,27 +15,25 @@ public class Imagem {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private int[][] mapaDeCalor;
 	private String nome;
-	private String localRegistro;
-	private String extensao;
 	private String metadados;
-	private LocalDateTime dataCaptura;
-	
-	private String informacoesAdicionaisAnimal;
-	
 	private String resultadosAnalise;
-	
-	public Imagem() {		
+	private LocalDateTime dataCaptura;
+	private String extensao;
+	private String informacoesAdicionaisAnimal;
+	private String localCaptura;
+	private int[][] mapaDeCalor;
+
+	public Imagem() {
 	}
 	
 
-	public Imagem(Long id, int[][] mapaDeCalor, String nome, String localRegistro, String extensao, String metadados,
+	public Imagem(Long id, int[][] mapaDeCalor, String nome, String localCaptura, String extensao, String metadados,
 			LocalDateTime dataCaptura, String informacoesAdicionaisAnimal, String resultadosAnalise) {
 		this.id = id;
 		this.mapaDeCalor = mapaDeCalor;
 		this.nome = nome;
-		this.localRegistro = localRegistro;
+		this.localCaptura = localCaptura;
 		this.extensao = extensao;
 		this.metadados = metadados;
 		this.dataCaptura = dataCaptura;
@@ -76,13 +74,13 @@ public class Imagem {
 	}
 
 
-	public String getLocalRegistro() {
-		return localRegistro;
+	public String getlocalCaptura() {
+		return localCaptura;
 	}
 
 
-	public void setLocalRegistro(String localRegistro) {
-		this.localRegistro = localRegistro;
+	public void setlocalCaptura(String localCaptura) {
+		this.localCaptura = localCaptura;
 	}
 
 

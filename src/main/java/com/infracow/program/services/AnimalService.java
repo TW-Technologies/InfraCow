@@ -17,4 +17,8 @@ public class AnimalService {
         return repository.findAll();
     }
 
+    public List<Animal> getAnimaisWithImages(){
+        return repository.findAllWithImages();
+    }
+
 }

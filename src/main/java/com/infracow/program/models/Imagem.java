@@ -2,11 +2,7 @@ package com.infracow.program.models;
 
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Imagem {
@@ -23,6 +19,10 @@ public class Imagem {
 	private String informacoesAdicionaisAnimal;
 	private String localCaptura;
 	private int[][] mapaDeCalor;
+
+	@ManyToOne
+	@JoinColumn(name = "id_animal")
+	private Animal animal;
 
 	public Imagem() {
 	}

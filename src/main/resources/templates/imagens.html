@@ -1,26 +1,27 @@
 <!--HEADER -->
 <div th:insert="~{fragments/header}"></div>
 <!-- CONTENT -->
-<div class="container p-3">
-	<h1 class="text-center">InfraCow</h1>
-	<hr>
-	<div class="container shadow pt-5 pb-5">
-		<h2 class="text-center">Analises Feitas</h2>
-		<table class="table">
-			<thead>
-				<tr>
-					<th scope="col">Nome da Imagem</th>
-					<th scope="col">Data de Captura</th>
-					<th scope="col">Resultado da Análise</th>
-				</tr>
-			</thead>
-			<tbody class="d-flex flex-column" th:each="imagem : ${imagens}" >
+<div class="container p-3 listaWrapper">
+        <h2 class="text-start">Lista de Análises</h2>
+    <div class="container borderGradient pt-5 pb-5">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Nome da Imagem</th>
+                <th scope="col">Data de Captura</th>
+                <th scope="col">Resultado da Análise</th>
+            </tr>
+            </thead>
+            <tbody class="d-flex flex-column" th:each="imagem : ${imagens}">
+            <tr>
+                <td>
+                    <p th:text="${imagem.nome}"></p>
+                </td>
+            </tr>
 
-				<p th:text="${imagem.nome}"></p>
-
-			</tbody>
-		</table>
-	</div>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <!-- FOOTER -->

@@ -1,34 +1,37 @@
 <!--HEADER -->
-<div th:insert="fragments/header"></div>
+<div th:replace="fragments/header"></div>
 
 <!-- CONTENT -->
-<div class="container p-3">
-	<h1 class="text-center">InfraCow</h1>
-	<hr>
-	<div class="container shadow pt-5 pb-5">
-		<h2 class="text-center">Login</h2>
-		<form action="#" th:action="@{/user/cadastroUser}" method="get">
-			<div class="d-flex flex-column row g-2 align-items-center">
-				<div class="col-4">
-					<label for="userNomeInput">Insira o nome de usuário</label>
-					<br>
-					<input class="form-control" type="text" name="userNome" id="userNomeInput"
-						placeholder="Insira o nome de usuário" required>
-				</div>
-				<div class="col-4 mt-5">ß
-					<label for="userSenhaInput">Insira a senha</label>
-					<br>
-					<input class="form-control" type="password" name="userSenha" id="userSenhaInput"
-						placeholder="Insira a senha" required>
-				</div>
-				<div class="text-center mt-5">
-					<input class="btn btn-primary" type="submit" value="Login">
-				</div>
-				<span class="text-center">Não possui uma conta? <a href="#" th:href="@{/user/cadastroUser}">Cadastre-se</a></span>
-			</div>
-		</form>
-	</div>
+<div class="d-flex justify-content-center align-items-center" style="height: 90vh; margin: 0;">
+    <div class="container row pt-2 pb-2 loginWrapper borderGradient">
+        <div class="col-md-5 col-sm-12 text-center p-5">
+            <img th:src="@{/images/logo_infracow_colored.png}" alt="Logo do Projeto Infracow" class="img-fluid">
+        </div>
+        <div class="col-md-7 col-sm-12">
+            <form action="#" th:action="@{/user/cadastroUser}" method="get">
+                <div class="d-flex flex-column row g-2 align-items-center">
+                    <h2 class="text-center">Login</h2>
+                    <div class="col-4">
+                        <label for="userNomeInput">Insira o nome de usuário</label>
+                        <br>
+                        <input class="form-control" type="text" name="userNome" id="userNomeInput"
+                               placeholder="Insira o nome de usuário" required>
+                    </div>
+                    <div class="col-4 mt-5">
+                        <label for="userSenhaInput">Insira a senha</label>
+                        <br>
+                        <input class="form-control" type="password" name="userSenha" id="userSenhaInput"
+                               placeholder="Insira a senha" required>
+                    </div>
+                    <div class="text-center mt-5">
+                        <input class="btn btnLogin borderGradient" type="submit" value="Login">
+                    </div>
+                    <span class="text-center">Não possui uma conta? <a href="#"
+                                                                       th:href="@{/user/cadastroUser}">Cadastre-se</a></span>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
-<!-- FOOTER -->
-<div th:insert="fragments/footer"></div>
+<div th:replace="fragments/footer"></div>

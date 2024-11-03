@@ -5,19 +5,18 @@
     <h1 class="text-start">Lista de Análises</h1>
     <div class="d-flex flex-column" th:each="imagem : ${imagens}">
         <div class="container borderGradient pt-5 pb-5 ps-5 pe-5 mt-5">
-            <h2 class="btn" type="button" data-bs-toggle="collapse"
+            <h2 class="btn analiseAnimalTitle" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseWidthExample"
+                aria-expanded="false" aria-controls="collapseWidthExample"
                 th:attr="data-bs-target='#collapse' + ${imagem.id}"
-                aria-expanded="false" aria-controls="collapseWidthExample">
+            >
                 ID: <span th:text="${imagem.nome}"></span>
             </h2>
-            <div style="min-height: 120px;">
-                <div class="collapse" th:id="'collapse' + ${imagem.id}">
-                    <div class="d-flex flex-column align-items-start analiseItem">
-                        <h3>Resultado:</h3>
-                        <h3>Informações Adicionais:</h3>
-                        <h3>Peso:</h3>
-                    </div>
+            <div class="collapse" th:id="'collapse' + ${imagem.id}" >
+                <div class="d-flex flex-column align-items-start analiseItem">
+                    <h3>Resultado:</h3>
+                    <h3>Informações Adicionais:</h3>
+                    <h3>Peso:</h3>
                 </div>
             </div>
         </div>

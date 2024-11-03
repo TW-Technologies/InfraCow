@@ -98,7 +98,10 @@ header ul li a{
 
     padding: 10px;
 }
-
+.analiseAnimalTitle{
+    color:#fff;
+    font-size: 1.5rem;
+}
 /* ----- Footer ----- */
 footer{
     background: linear-gradient(135deg, hsla(357, 100%, 51%, 1) 0%, hsla(173, 91%, 54%, 1) 50%, hsla(51, 100%, 61%, 1) 100%);

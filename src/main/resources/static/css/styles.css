@@ -32,6 +32,11 @@ body{
     border-radius: 25px;
 }
 
+main{
+    min-height: 80vh;
+    max-height: fit-content;
+}
+
 /* ----- Header ----- */
 header{
     display:flex;
@@ -78,6 +83,30 @@ header ul li a{
 .btnLogin{
     color:#fff;
     width: 200px;
+}
+
+.loginTitle{
+    font-weight:500;
+    font-size: 2.3rem;
+}
+.inputLogin{
+    background-color:transparent;
+    border:none;
+    color:#FFFFFF;
+}
+.inputLogin:focus{
+    background-color:transparent;
+    color:#8a8888;
+    border:none;
+}
+.inputLogin::placeholder{
+    color:#8a8888;
+    opacity: 1; /* Firefox */
+}
+.loginLink a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:800;
 }
 
 /* ----- Lista de Analises ----- */

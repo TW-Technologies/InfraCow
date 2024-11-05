@@ -1,29 +1,31 @@
 <!--HEADER -->
 <div th:insert="~{fragments/header}"></div>
 <!-- CONTENT -->
-<div class="container p-3">
-    <div class="container  d-flex flex-column align-items-start pt-5 pb-5 imagemCadastroWrapper">
-        <h1 class="text-start">Análise de Imagem</h1>
-        <form action="#" th:action="@{/imagem/addImagem}" method="post" enctype="multipart/form-data">
-            <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="image-upload borderGradient">
-                        <input type="file" name="arquivo" id="arquivoInput" alt="Input For Images" accept="image/*"
-                               class="form-control" required>
-                        <label for="arquivoInput" class="custom-file-upload-label">
-                            <img th:src="@{/images/image_input_icon.png}" alt="Input Image Placeholder" width="60%">
-                        </label>
+<main>
+    <div class="container p-3">
+        <div class="container  d-flex flex-column align-items-start pt-5 pb-5 imagemCadastroWrapper">
+            <h1 class="text-start">Análise de Imagem</h1>
+            <form action="#" th:action="@{/imagem/addImagem}" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="image-upload borderGradient">
+                            <input type="file" name="arquivo" id="arquivoInput" alt="Input For Images" accept="image/*"
+                                   class="form-control" required>
+                            <label for="arquivoInput" class="custom-file-upload-label">
+                                <img th:src="@{/images/image_input_icon.png}" alt="Input Image Placeholder" width="60%">
+                            </label>
+                        </div>
                     </div>
+                    <div class="col-md-6 col-sm-12">
+                        <label for="comentarioExtraInput" class="labelImagemForm">Informaçoes Adicionais:</label>
+                        <input type="text" name="comentarioExtra" id="comentarioExtraInput" class="form-control">
+                    </div>
+                    <input class="btn btn-danger mt-5" type="submit" value="Enviar Imagem para análise">
                 </div>
-                <div class="col-md-6 col-sm-12">
-                    <label for="comentarioExtraInput" class="labelImagemForm">Informaçoes Adicionais:</label>
-                    <input type="text" name="comentarioExtra" id="comentarioExtraInput" class="form-control">
-                </div>
-                <input class="btn btn-danger mt-5" type="submit" value="Enviar Imagem para análise">
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
+</main>
 
 <!-- FOOTER -->
 <div th:insert="~{fragments/footer}"></div>

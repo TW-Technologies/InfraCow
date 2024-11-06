@@ -23,10 +23,14 @@ public class SecurityConfig {
 
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
-
-
+    
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http.sessionManagement(session -> session
+                .invalidSessionUrl("/auth/login?invalid_session")
+                .maximumSessions(1)
+                .expiredUrl("/auth/login?expired")
+        );
         http.authorizeHttpRequests(request -> request
                         .requestMatchers(HttpMethod.POST, "/auth/authenticate").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/create").permitAll()
@@ -45,6 +49,7 @@ public class SecurityConfig {
                 .logout(logout -> logout
                         .logoutUrl("/auth/logout")
                         .logoutSuccessUrl("/auth/login").permitAll()
+                        .deleteCookies("JSESSIONID")
                 );
         return http.build();
     }
@@ -53,6 +58,7 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
 
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {

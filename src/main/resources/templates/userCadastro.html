@@ -17,11 +17,11 @@
                      </div>-->
                     <label for="email">Email:</label>
                     <br>
-                    <input class="form-control inputLogin" type="email" th:field="*{email}" id="email"
+                    <input class="form-control inputLogin" type="text" th:field="*{email}" id="email"
                            placeholder="exemplo@gmail.com" required>
                     <label for="senha" class="mt-3">Senha:</label>
                     <br>
-                    <input class="form-control inputLogin" type="text" th:field="*{senha}" minlength="8" id="senha"
+                    <input class="form-control inputLogin" type="text" th:field="*{senha}" minlength="1" id="senha"
                            placeholder="*****" required>
                     <div class="text-center mt-3">
                         <input class="btn btnLogin borderGradient" type="submit" value="Cadastrar">

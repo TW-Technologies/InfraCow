@@ -22,10 +22,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     @Autowired
-    private CustomUserDetailsService userDetailsService;
+    private CustomUserDetailsService customUserDetailsService;
 
-    @Autowired
-    SecurityFilter securityFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -39,6 +37,8 @@ public class SecurityConfig {
                 ).formLogin(formLogin ->
                         formLogin
                                 .loginPage("/auth/login").permitAll()
+                                .usernameParameter("email")
+                                .passwordParameter("senha")
                                 .defaultSuccessUrl("/animal/animais", true) // Redireciona após login bem-sucedido
                 )
                 .logout(logout -> logout
@@ -54,7 +54,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public UserDetailsService userDetailsService() {
+    public UserDetailsService userDetailsService(){
         return new CustomUserDetailsService();
     }
 

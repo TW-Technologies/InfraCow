@@ -16,6 +16,7 @@ public class Usuario {
 	
 	@Column(name = "email")
 	private String email;
+	@Column(name = "senha")
 	private String senha;
 
 	public Usuario() {
@@ -25,7 +26,6 @@ public class Usuario {
 		super();
 		this.id = id;
 		this.nome = nome;
-				
 		this.email = email;
 		this.senha = senha;
 	}
@@ -46,19 +46,19 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-	public String getemail() {
+	public String getEmail() {
 		return email;
 	}
 
-	public void setemail(String email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public String getsenha() {
+	public String getSenha() {
 		return senha;
 	}
 
-	public void setsenha(String senha) {
+	public void setSenha(String senha) {
 		this.senha = senha;
 	}
 

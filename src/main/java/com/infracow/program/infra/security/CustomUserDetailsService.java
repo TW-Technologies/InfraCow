@@ -2,6 +2,7 @@ package com.infracow.program.infra.security;
 
 import com.infracow.program.models.Usuario;
 import com.infracow.program.repositories.UserRepository;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.User;
@@ -12,8 +13,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
-@Component
+@Service
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
@@ -21,7 +23,16 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Usuario user = this.repository.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException("User Not Found!"));
-        return new User(user.getemail(), user.getsenha(), new ArrayList<>());
+        Optional<Usuario> userOpt = repository.findByEmail(username);
+
+        if (userOpt.isPresent()) {
+            Usuario user = userOpt.get();
+            return User.builder()
+                    .username(user.getEmail())
+                    .password(user.getSenha())
+                    .roles("")
+                    .build();
+        }
+        return null;
     }
 }

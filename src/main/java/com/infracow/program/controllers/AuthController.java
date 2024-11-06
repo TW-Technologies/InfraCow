@@ -1,6 +1,5 @@
 package com.infracow.program.controllers;
 
-import com.infracow.program.infra.security.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -61,16 +60,15 @@ public class AuthController {
 
     @PostMapping("/create")
     public String addUser(@ModelAttribute("usuario") @Validated Usuario body, BindingResult result, Model model) {
-        Optional<Usuario> userOpt = this.service.findByEmail(body.getemail());
+        Optional<Usuario> userOpt = this.service.findByEmail(body.getEmail());
         if (result.hasErrors() || userOpt.isPresent()) {
             model.addAttribute("errorMessage", "Erro ao criar usuário");
             return "userCadastro";
         }
 
-
         Usuario newUser = new Usuario();
-        newUser.setemail(body.getemail());
-        newUser.setsenha(passwordEncoder.encode(body.getsenha()));
+        newUser.setEmail(body.getEmail());
+        newUser.setSenha(passwordEncoder.encode(body.getSenha()));
         service.addUser(newUser);
 
         return "redirect:/auth/login?success";// Após o cadastro, redireciona para a página de login

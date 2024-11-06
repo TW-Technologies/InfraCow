@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.infracow.program.models.Usuario;
 import com.infracow.program.services.UserService;
 
+import java.util.Optional;
+
 
 @Controller
 @RequestMapping("/auth")
@@ -22,13 +24,12 @@ public class AuthController {
 
     @Autowired
     private UserService service;
+
     @Autowired
     private PasswordEncoder passwordEncoder;
-    @Autowired
-    private TokenService tokenService;
 
 
-    @GetMapping("/")
+    @GetMapping("/login")
     public String loginPage() {
         return "userLogin";
     }
@@ -39,21 +40,39 @@ public class AuthController {
         return "userCadastro";
     }
 
-    @PostMapping("/login")
-    public String addUser(@ModelAttribute("usuario") @Validated Usuario usuario, BindingResult result, Model model) {
-        Usuario user = this.service.findByEmail(usuario.getemail()).orElseThrow(() -> new RuntimeException("User Not Found"));
+ /*   @PostMapping("/authenticate")
+    public String authenticate(@ModelAttribute("usuario") @Validated Usuario body, BindingResult result, Model model) {
+        Optional<Usuario> userOpt = this.service.findByEmail(body.getemail());
 
-        if(passwordEncoder.matches(user.getsenha(), usuario.getsenha())){
-            String token = this.tokenService.generateToken(user);
-            return "redirect:/imagem/cadastroImagem";
+        if (result.hasErrors() || userOpt.isEmpty()) {
+            model.addAttribute("errorMessage", "Credenciais inválidas");
+            return "userLogin";
         }
 
+        Usuario user = userOpt.get();
 
-        if (result.hasErrors()) {
+        if (passwordEncoder.matches(user.getsenha(), body.getsenha())) {
+            return "redirect:/animal/animais";
+        }
+
+        model.addAttribute("errorMessage", "Credenciais inválidas");
+        return "userLogin";
+    }*/
+
+    @PostMapping("/create")
+    public String addUser(@ModelAttribute("usuario") @Validated Usuario body, BindingResult result, Model model) {
+        Optional<Usuario> userOpt = this.service.findByEmail(body.getemail());
+        if (result.hasErrors() || userOpt.isPresent()) {
+            model.addAttribute("errorMessage", "Erro ao criar usuário");
             return "userCadastro";
         }
 
-        service.addUser(usuario);
-        return "redirect:/user/";
+
+        Usuario newUser = new Usuario();
+        newUser.setemail(body.getemail());
+        newUser.setsenha(passwordEncoder.encode(body.getsenha()));
+        service.addUser(newUser);
+
+        return "redirect:/auth/login?success";// Após o cadastro, redireciona para a página de login
     }
 }

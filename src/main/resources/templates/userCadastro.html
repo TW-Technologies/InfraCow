@@ -8,7 +8,7 @@
                 <img th:src="@{/images/logo_infracow_colored.png}" alt="Logo do Projeto Infracow" class="img-fluid">
             </div>
             <div class="col-md-7 col-sm-12 d-flex flex-column align-items-center justify-content-center ">
-                <form action="#" th:action="@{/user/addUser}" th:object="${usuario}" method="post">
+                <form action="#" th:action="@{/auth/create}" th:object="${usuario}" method="post">
                     <h2 class="text-start loginTitle">Cadastro</h2>
                     <!-- <div class="col-4">
                          <label for="nome">Insira o nome:</label>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="container text-center mt-3">
                         <span class="loginLink">Já possui uma conta? <a href="#"
-                                                                          th:href="@{/user/}">Fazer Login</a></span>
+                                                                          th:href="@{/auth/login}">Fazer Login</a></span>
                     </div>
                 </form>
             </div>

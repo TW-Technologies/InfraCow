@@ -3,13 +3,16 @@
 
 <!-- CONTENT -->
 <main style="position:relative">
+    <div th:if="${param.success }">
+        Conta Criada com Sucesso!
+    </div>
     <div class="d-flex justify-content-center align-items-center" style="position:absolute;height:100%; width:100%;">
         <div class="container row pt-2 pb-2 loginWrapper borderGradient">
             <div class="col-md-5 col-sm-12 text-center p-5">
                 <img th:src="@{/images/logo_infracow_colored.png}" alt="Logo do Projeto Infracow" class="img-fluid">
             </div>
             <div class="col-md-7 col-sm-12 d-flex flex-column align-items-center justify-content-center">
-                <form action="#" th:action="@{/user/cadastroUser}" method="get">
+                <form action="#" th:action="@{/auth/login}" method="POST">
                     <h2 class="text-start loginTitle">Login</h2>
                     <label for="userNomeInput">Email</label>
                     <br>
@@ -24,7 +27,7 @@
                     </div>
                     <div class="container text-center mt-3">
                         <span class="loginLink">Cadastre-se <a href="#"
-                                                  th:href="@{/user/cadastroUser}">aqui</a></span>
+                                                  th:href="@{/auth/register}">aqui</a></span>
                     </div>
 
                 </form>

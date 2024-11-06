@@ -33,6 +33,6 @@ public class CustomUserDetailsService implements UserDetailsService {
                     .roles("")
                     .build();
         }
-        return null;
+        throw new UsernameNotFoundException("Usuário não encontrado com o email: " + username);
     }
 }

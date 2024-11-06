@@ -12,11 +12,18 @@
 <body>
 
 <header>
-        <img th:src="@{/images/logo_infracow_colored.png}" alt="Logo do Projeto Infracow" height="100%">
+    <img th:src="@{/images/logo_infracow_colored.png}" alt="Logo do Projeto Infracow" height="100%">
     <ul>
         <li><a>Home</a></li>
         <li><a href="#" th:href="@{/imagem/cadastroImagem}">Analisar</a></li>
         <li><a href="#" th:href="@{/animal/animais}">Casos</a></li>
     </ul>
-    <a href="#" th:href="@{/user/}" class="btn headerBtnLogin borderGradient">Login</a>
+    <div sec:authorize="isAuthenticated()">
+        <form th:action="@{/auth/logout}" method="post">
+            <button type="submit" class="btn headerBtnLogin borderGradient">Logout</button>
+        </form>
+    </div>
+    <div sec:authorize="isAnonymous()">
+        <a href="#" th:href="@{/user/}" class="btn headerBtnLogin borderGradient">Login</a>
+    </div>
 </header>

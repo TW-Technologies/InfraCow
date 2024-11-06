@@ -37,6 +37,7 @@ public class SecurityConfig {
                 ).formLogin(formLogin ->
                         formLogin
                                 .loginPage("/auth/login").permitAll()
+                                .failureUrl("/auth/login?error=true")
                                 .usernameParameter("email")
                                 .passwordParameter("senha")
                                 .defaultSuccessUrl("/animal/animais", true) // Redireciona após login bem-sucedido
@@ -54,14 +55,9 @@ public class SecurityConfig {
     }
 
     @Bean
-    public UserDetailsService userDetailsService(){
-        return new CustomUserDetailsService();
-    }
-
-    @Bean
     public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
         AuthenticationManagerBuilder authenticationManagerBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
-        authenticationManagerBuilder.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
+        authenticationManagerBuilder.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder());
         return authenticationManagerBuilder.build();
     }
 

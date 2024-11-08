@@ -35,6 +35,8 @@ body{
 main{
     min-height: 80vh;
     max-height: fit-content;
+
+    padding-inline: 10vw;
 }
 
 /* ----- Header ----- */
@@ -161,6 +163,15 @@ header ul li a{
 .analiseAnimalTitle{
     color:#fff;
     font-size: 1.5rem;
+}
+
+/* ----- Home ----- */
+.homeTitle{
+    color:#fff;
+}
+
+.homeText{
+    font-size:1.3rem;
 }
 /* ----- Footer ----- */
 footer{

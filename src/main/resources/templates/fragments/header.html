@@ -12,6 +12,10 @@
 <body>
 
 <header>
+
+
+</header>
+<!--<header>
     <img th:src="@{/images/logo_infracow_colored.png}" alt="Logo do Projeto Infracow" height="100%">
     <ul>
         <li><a href="#" th:href="@{/index}">Home</a></li>
@@ -26,4 +30,38 @@
     <div sec:authorize="isAnonymous()">
         <a href="#" th:href="@{/user/}" class="btn headerBtnLogin borderGradient">Login</a>
     </div>
-</header>
+</header>-->
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <img th:src="@{/images/logo_infracow_colored.png}" alt="Logo do Projeto Infracow" height="100px">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto pe-auto ps-auto mb-2 mb-lg-0 d-flex justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{/index}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{/imagem/cadastroImagem}">Analisar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{/animal/animais}">Casos</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                <div sec:authorize="isAuthenticated()">
+                    <form th:action="@{/auth/logout}" method="post">
+                        <button type="submit" class="btn headerBtnLogin borderGradient">Logout</button>
+                    </form>
+                </div>
+                <div sec:authorize="isAnonymous()">
+                    <a href="#" th:href="@{/user/}" class="btn headerBtnLogin borderGradient">Login</a>
+                </div>
+            </span>
+        </div>
+    </div>
+</nav>
+

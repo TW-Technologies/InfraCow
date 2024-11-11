@@ -10,4 +10,9 @@ public class RouterController {
     public String homePage(){
         return "home";
     }
+
+    @GetMapping(value = "/dashboard")
+    public String dashboardPage(){
+        return "dashboard";
+    }
 }

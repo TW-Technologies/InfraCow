@@ -37,26 +37,12 @@ main{
     max-height: fit-content;
 
     padding-inline: 10vw;
+
+    margin-top:15vh;
 }
 
 /* ----- Header ----- */
-header{
 
-    min-height: 10vh;
-    max-height:fit-content;
-    padding:5px;
-
-    background-color: #1C1C1C;
-
-    border: 2px solid;
-    border-image-slice: 1;
-    border-image-source: var(--gradient-color);
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
-
-    color: #fff;
-}
 header ul{
     list-style: none;
     padding: 0;
@@ -73,6 +59,40 @@ header ul li a{
 .headerBtnLogin{
     color:#fff;
     width: 100px;
+}
+
+.navbar{
+
+
+    min-height: 10vh;
+    max-height:fit-content;
+
+    background-color: #1C1C1C;
+
+    border: 2px solid;
+    border-image-slice: 1;
+    border-image-source: var(--gradient-color);
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+
+    color: #fff;
+}
+
+.navbarButton{
+    background: linear-gradient(#fff, #fff)
+    padding-box,var(--gradient-color)  border-box;
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 25px;
+}
+.navbar-nav li{
+    text-align: center;
+}
+.navbarLoginLogoutBtn{
+    text-align:center;
 }
 
 /* ----- Login ----- */

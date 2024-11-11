@@ -5,9 +5,10 @@
     <div class="container p-3">
         <div class="container  d-flex flex-column align-items-center pt-5 pb-5 imagemCadastroWrapper">
             <form action="#" th:action="@{/imagem/addImagem}" method="post" enctype="multipart/form-data">
-            <h1 class="text-start">Análise de Imagem</h1>
+                <h1 class="text-start">Análise de Imagem</h1>
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
+                        <label for="arquivoInput" class="labelImagemForm">Adicionar Imagem:</label>
                         <div class="image-upload borderGradient">
                             <input type="file" name="arquivo" id="arquivoInput" alt="Input For Images" accept="image/*"
                                    class="form-control" required>
@@ -19,6 +20,9 @@
                     <div class="col-md-6 col-sm-12">
                         <label for="comentarioExtraInput" class="labelImagemForm">Informaçoes Adicionais:</label>
                         <input type="text" name="comentarioExtra" id="comentarioExtraInput" class="form-control">
+                        <br>
+                        <label for="comentarioExtraInput" class="labelImagemForm">Selecionar Animal:</label>
+                        <input type="text" name="comentarioExtra" id="input" class="form-control">
                     </div>
                     <input class="btn btn-danger mt-5" type="submit" value="Enviar Imagem para análise">
                 </div>

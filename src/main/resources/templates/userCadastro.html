@@ -4,6 +4,12 @@
 <main style="position:relative; padding:0px;">
     <div class="d-flex justify-content-center align-items-center" style="position:absolute;height:100%; width:100%;">
         <div class="container row pt-2 pb-2 loginWrapper borderGradient ">
+            <!-- Exibe a mensagem de erro caso o login falhe -->
+            <div th:if="${param.error}" class="error-message" style="color:#fff">
+                <div class="alert alert-danger" role="alert">
+                    Conta já existente, faça login ou cadastre uma nova conta!
+                </div>
+            </div>
             <div class="col-md-5 col-sm-12 text-center p-5">
                 <img th:src="@{/images/logo_infracow_colored.png}" alt="Logo do Projeto Infracow" class="img-fluid">
             </div>
@@ -28,7 +34,7 @@
                     </div>
                     <div class="container text-center mt-3">
                         <span class="loginLink">Já possui uma conta? <a href="#"
-                                                                          th:href="@{/auth/login}">Fazer Login</a></span>
+                                                                        th:href="@{/auth/login}">Fazer Login</a></span>
                     </div>
                 </form>
             </div>

@@ -39,31 +39,12 @@ public class AuthController {
         return "userCadastro";
     }
 
- /*   @PostMapping("/authenticate")
-    public String authenticate(@ModelAttribute("usuario") @Validated Usuario body, BindingResult result, Model model) {
-        Optional<Usuario> userOpt = this.service.findByEmail(body.getemail());
-
-        if (result.hasErrors() || userOpt.isEmpty()) {
-            model.addAttribute("errorMessage", "Credenciais inválidas");
-            return "userLogin";
-        }
-
-        Usuario user = userOpt.get();
-
-        if (passwordEncoder.matches(user.getsenha(), body.getsenha())) {
-            return "redirect:/animal/animais";
-        }
-
-        model.addAttribute("errorMessage", "Credenciais inválidas");
-        return "userLogin";
-    }*/
-
     @PostMapping("/create")
     public String addUser(@ModelAttribute("usuario") @Validated Usuario body, BindingResult result, Model model) {
         Optional<Usuario> userOpt = this.service.findByEmail(body.getEmail());
         if (result.hasErrors() || userOpt.isPresent()) {
             model.addAttribute("errorMessage", "Erro ao criar usuário");
-            return "userCadastro";
+            return "redirect:/auth/register?error"; //Se usuário Já está criado, retorna erro
         }
 
         Usuario newUser = new Usuario();

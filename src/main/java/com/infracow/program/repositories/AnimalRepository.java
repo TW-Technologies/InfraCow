@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface AnimalRepository extends JpaRepository<Animal, Long> {
 
-    @Query("SELECT a FROM Animal a JOIN FETCH a.imagens")
+    @Query("SELECT a FROM Animal a LEFT JOIN FETCH a.imagens")
     List<Animal> findAllWithImages();
 
 }

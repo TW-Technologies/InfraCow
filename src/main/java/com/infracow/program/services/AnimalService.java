@@ -20,5 +20,4 @@ public class AnimalService {
     public List<Animal> getAnimaisWithImages(){
         return repository.findAllWithImages();
     }
-
 }

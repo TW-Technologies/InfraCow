@@ -2,6 +2,7 @@ package com.infracow.program.controllers;
 
 import com.infracow.program.models.Animal;
 import com.infracow.program.services.AnimalService;
+import com.infracow.program.utils.Util;
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,10 +33,10 @@ public class AnimalController {
         Animal[] arrayAnimais = listaAnimais.toArray(new Animal[0]);
 
         //Ordenando A lista de animais
+        Util.mergeSort(arrayAnimais, arrayAnimais.length);
 
 
-
-        model.addObject("animais", service.getAnimaisWithImages());
+        model.addObject("animais", arrayAnimais);
         model.addObject("url", folderPath);
         return model;
     }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -24,6 +25,14 @@ public class AnimalController {
     @GetMapping("/animais")
     public ModelAndView getAnimais(){
         ModelAndView model = new ModelAndView("imagens");
+
+        //Lista de animais
+        List<Animal> listaAnimais = service.getAnimaisWithImages();
+        //Transformando em array
+        Animal[] arrayAnimais = listaAnimais.toArray(new Animal[0]);
+
+        //Ordenando A lista de animais
+
 
 
         model.addObject("animais", service.getAnimaisWithImages());

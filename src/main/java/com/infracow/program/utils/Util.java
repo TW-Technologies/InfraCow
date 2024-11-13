@@ -17,16 +17,13 @@ public class Util {
 
         for (int i = 0; i < middle; i++) {
             left[i] = array[i];
-            System.out.println("Left:");
             System.out.println(left[i].getIdade());
         }
         for (int i = middle; i < n; i++) {
             right[i - middle] = array[i];
-            System.out.println("Right:");
             System.out.println(right[i - middle].getIdade());
         }
         for (int i = 0; i < n; i++) {
-            System.out.println("Array:");
             System.out.println(array[i].getIdade());
         }
 

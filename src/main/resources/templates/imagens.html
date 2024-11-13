@@ -1,9 +1,19 @@
 <!--HEADER -->
-<div th:insert="~{fragments/header}"></div>
+<div th:replace="fragments/header"></div>
 <!-- CONTENT -->
 <main>
-
     <div class="container p-3 listaWrapper">
+        <h1 class="text-start">Visão Geral</h1>
+        <div class="container p-3">
+            <div class="row" >
+                <div class="border col-md-6 col-sm-12" style="height:40vh">
+                    <canvas id="graficoBarrasMortes"></canvas>
+                </div>
+                <div class="border col-md-6 col-sm-12" style="height:40vh">
+                    <canvas id="graficoPizzaRelacaoTotal"></canvas>
+                </div>
+            </div>
+        </div>
         <h1 class="text-start">Lista de Análises</h1>
         <div class="d-flex flex-column" th:each="animal : ${animais}">
             <div class="container borderGradient pt-2 pb-2 ps-5 pe-5 mt-5">
@@ -29,4 +39,4 @@
 
 
 <!-- FOOTER -->
-<div th:insert="~{fragments/footer}"></div>
+<div th:replace="fragments/footer"></div>

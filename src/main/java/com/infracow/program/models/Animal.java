@@ -69,4 +69,6 @@ public class Animal {
     public void setImagens(List<Imagem> imagens) {
         this.imagens = imagens;
     }
+
+
 }

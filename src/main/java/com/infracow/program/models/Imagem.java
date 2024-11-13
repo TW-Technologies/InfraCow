@@ -134,7 +134,11 @@ public class Imagem {
 		this.resultadosAnalise = resultadosAnalise;
 	}
 
-	
+	public Animal getAnimal() {
+		return animal;
+	}
 
-
+	public void setAnimal(Animal animal) {
+		this.animal = animal;
+	}
 }

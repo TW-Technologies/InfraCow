@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 
 import javax.imageio.ImageIO;
 
+import com.infracow.program.models.Animal;
+import com.infracow.program.services.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,12 +28,17 @@ public class ImageController {
     @Autowired
     private ImagemService service;
 
+    @Autowired
+    private AnimalService animalService;
+
     //Path of Images Folder
     String folderPath = "src/main/resources/images/analyses";
 
     @GetMapping("/cadastroImagem")
-    public String imagemInsert() {
-        return "imagemCadastro";
+    public ModelAndView imagemInsert() {
+        ModelAndView model = new ModelAndView("imagemCadastro");
+        model.addObject("listaAnimais", animalService.getAnimais());
+        return model;
     }
 
     @PostMapping("/addImagem")
@@ -61,6 +68,9 @@ public class ImageController {
                 largura = bfImage.getWidth();
                 altura = bfImage.getHeight();
             }
+            // Id do animal - Recupera animal com esse ID
+            Long id_animal = (Long) imagemDTO.getIdAnimal();
+            Animal animal = animalService.getAnimalById(id_animal);
 
 
             //Instanciar imagem e salvar os dados para o banco de dados
@@ -69,8 +79,8 @@ public class ImageController {
             imagem.setExtensao(extensao);
             imagem.setDataCaptura(dataCaptura);
             imagem.setInformacoesAdicionaisAnimal(comentarioExtra);
-            imagem.setMetadados("width: " + String.valueOf(largura) + "heigh: " + String.valueOf(altura));
-
+            imagem.setMetadados("width: " + String.valueOf(largura) + "height: " + String.valueOf(altura));
+            imagem.setAnimal(animal);
             //Passa o caminho da pasta e a imagem
             service.addImagem(folderPath, imagem, imageFile);
         } else {

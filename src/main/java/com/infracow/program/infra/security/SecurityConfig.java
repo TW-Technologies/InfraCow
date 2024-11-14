@@ -44,7 +44,7 @@ public class SecurityConfig {
                                 .failureUrl("/auth/login?error=true")
                                 .usernameParameter("email")
                                 .passwordParameter("senha")
-                                .defaultSuccessUrl("/animal/animais", true) // Redireciona após login bem-sucedido
+                                .defaultSuccessUrl("/index", true) // Redireciona após login bem-sucedido
                 )
                 .logout(logout -> logout
                         .logoutUrl("/auth/logout")

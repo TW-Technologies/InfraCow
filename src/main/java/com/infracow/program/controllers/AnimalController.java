@@ -25,7 +25,7 @@ public class AnimalController {
 
     @GetMapping("/animais")
     public ModelAndView getAnimais(){
-        ModelAndView model = new ModelAndView("imagens");
+        ModelAndView model = new ModelAndView("resultados");
 
         //Lista de animais
         List<Animal> listaAnimais = service.getAnimaisWithImages();

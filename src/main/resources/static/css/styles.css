@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 
 *{
+    margin: 0px;
+    padding: 0px;
     font-family: "Sora", sans-serif;
+
 }
 h1{
     font-weight: 700;
@@ -36,9 +39,11 @@ main{
     min-height: 80vh;
     max-height: fit-content;
 
-    padding-inline: 10vw;
-
     margin-top:15vh;
+
+    padding-inline: 20vw;
+    padding-top: 10vh;
+    padding-bottom: 10vh
 }
 
 .grayBtn{
@@ -53,7 +58,7 @@ main{
     color:#fff;
 }
 .grayBtn:hover{
-    color:#fff;
+    color:#c1c1c1;
 }
 
 /* ----- Header ----- */
@@ -146,9 +151,7 @@ header ul li a{
 
 
 /* ----- Cadastro Imagem ----- */
-.imagemCadastroWrapper{
 
-}
 .imagemCadastroWrapper h1{
     color: #fff;
 }
@@ -162,7 +165,8 @@ header ul li a{
 
 .image-upload {
     position: relative;
-    width: 250px; /* Set desired width */
+    width: 100%; /* Set desired width */
+    max-width: 250px; /* Set desired width */
     height: 250px; /* Set desired height */
     overflow: hidden;
     display: flex;
@@ -201,6 +205,8 @@ header ul li a{
 .analiseAnimalTitle{
     color:#fff;
     font-size: 1.5rem;
+
+    padding: 1rem;
 }
 
 /* ----- Home ----- */

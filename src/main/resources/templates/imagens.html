@@ -22,12 +22,11 @@
                     aria-expanded="false" aria-controls="collapseWidthExample"
                     th:attr="data-bs-target='#collapse' + ${animal.id}"
                 >
-                    Nome: <span th:text="${animal.nome}"></span> /
+                    Identificador: <span th:text="${animal.codigoIdentificacao}"></span> /
                     Idade: <span th:text="${animal.idade}"></span>
                 </h2>
                 <div class="collapse" th:id="'collapse' + ${animal.id}" th:each="imagem : ${animal.imagens}">
                     <div class="d-flex flex-column align-items-start analiseItem mt-3">
-                        <h3>Resultado: <span th:text="${imagem.resultadosAnalise}"></span></h3>
                         <h3>Informações Adicionais: <span th:text="${imagem.informacoesAdicionaisAnimal}"></span></h3>
                         <h3>Peso: <span th:text="${animal.peso}"></span>Kg</h3>
                     </div>

@@ -1,8 +1,8 @@
-INSERT INTO animais(nome, especie, peso, idade) VALUES
-('Animal 01','Holstein-Frísia', 500.00, 10),
-('Animal 02','Holstein-Frísia', 550.00, 14),
-('Animal 03','Holstein-Frísia', 580.00, 12),
-('Animal 04','Holstein-Frísia', 340.00, 6),
-('Animal 05','Holstein-Frísia', 200.00, 1);
+INSERT INTO animais(codigo_identificacao, especie, peso, idade) VALUES
+('010101','Holstein-Frísia', 500.00, 10),
+('020202','Holstein-Frísia', 550.00, 14),
+('030303','Holstein-Frísia', 580.00, 12),
+('040404','Holstein-Frísia', 340.00, 6),
+('050505','Holstein-Frísia', 200.00, 1);
 
 

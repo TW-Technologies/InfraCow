@@ -1,13 +1,12 @@
 create table usuarios(
 	id int PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(255),
 	email VARCHAR(255),
 	senha VARCHAR(255)
 );
 create table animais(
 	id int PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(255),
 	especie VARCHAR(255),
+	codigo_identificacao VARCHAR(255),
 	peso DECIMAL(10,2),
 	idade INT,
 	id_usuario INT,
@@ -20,7 +19,6 @@ CREATE TABLE imagens (
     id_animal INT,
     nome VARCHAR(255),
     metadados Varchar(255),
-    resultados_analise Varchar(255),
     data_captura DATE,
     extensao VARCHAR(10),
     informacoes_adicionais_animal varchar(255),

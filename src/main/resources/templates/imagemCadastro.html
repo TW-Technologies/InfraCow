@@ -21,7 +21,7 @@
                         <label for="comentarioExtraInput" class="labelImagemForm">Selecionar Animal:</label>
                         <br>
                         <select name="idAnimal" id="idAnimalInput" class="form-select">
-                            <option th:each="animal : ${listaAnimais}" th:value="${animal.id}" th:text="'Nome: '+ ${animal.nome} + ' / Peso: ' + ${animal.peso} + 'Kg / Idade: ' +  ${animal.idade} "></option>
+                            <option th:each="animal : ${listaAnimais}" th:value="${animal.id}" th:text="'Código: '+ ${animal.codigoIdentificacao} + ' / Peso: ' + ${animal.peso} + 'Kg / Idade: ' +  ${animal.idade} "></option>
                         </select>
                         <br>
                         <label for="comentarioExtraInput" class="labelImagemForm">Informaçoes Adicionais:</label>

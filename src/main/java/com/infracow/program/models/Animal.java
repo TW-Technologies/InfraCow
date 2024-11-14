@@ -12,9 +12,10 @@ public class Animal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
     private double peso;
     private int idade;
+    @Column(name = "codigo_identificacao")
+    private String codigoIdentificacao;
 
     @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Imagem> imagens;
@@ -22,12 +23,12 @@ public class Animal {
     public Animal() {
     }
 
-    public Animal(Long id, String nome, double peso, int idade, List<Imagem> imagens) {
+    public Animal(Long id, double peso, int idade, List<Imagem> imagens, String codigoIdentificacao) {
         this.id = id;
-        this.nome = nome;
         this.peso = peso;
         this.idade = idade;
         this.imagens = imagens;
+        this.codigoIdentificacao = codigoIdentificacao;
     }
 
     public Long getId() {
@@ -36,14 +37,6 @@ public class Animal {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public double getPeso() {
@@ -70,5 +63,11 @@ public class Animal {
         this.imagens = imagens;
     }
 
+    public String getCodigoIdentificacao() {
+        return codigoIdentificacao;
+    }
 
+    public void setCodigoIdentificacao(String codigoIdentificacao) {
+        this.codigoIdentificacao = codigoIdentificacao;
+    }
 }

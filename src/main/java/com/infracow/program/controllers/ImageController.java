@@ -3,10 +3,13 @@ package com.infracow.program.controllers;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.imageio.ImageIO;
 
+import com.infracow.program.models.Analise;
 import com.infracow.program.models.Animal;
+import com.infracow.program.services.AnaliseService;
 import com.infracow.program.services.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +30,9 @@ public class ImageController {
 
     @Autowired
     private ImagemService service;
+
+    @Autowired
+    private AnaliseService analiseService;
 
     @Autowired
     private AnimalService animalService;
@@ -81,8 +87,21 @@ public class ImageController {
             imagem.setInformacoesAdicionaisAnimal(comentarioExtra);
             imagem.setMetadados("width: " + String.valueOf(largura) + "height: " + String.valueOf(altura));
             imagem.setAnimal(animal);
-            //Passa o caminho da pasta e a imagem
-            service.addImagem(folderPath, imagem, imageFile);
+
+            //Passa o caminho da pasta e a imagem - Salva imagem inserted
+            Imagem lastImageAdded = service.addImagem(folderPath, imagem, imageFile);
+            Long lastIdAdded = lastImageAdded.getId();
+            System.out.println("Último ID inseted:" + lastIdAdded);
+
+            //Criar Mockup de Análise da Imagem e salvar
+            Analise analise = new Analise();
+            analise.setImagem(lastImageAdded);
+            analise.setDataAnalise(new Date());
+            analise.setResultadosAnalise("Positivo");
+            analiseService.analiseAdd(analise);
+
+
+
         } else {
             return "redirect:/imagem/cadastroImagem";
         }
@@ -90,7 +109,7 @@ public class ImageController {
     }
 
     @GetMapping("/images")
-    public ModelAndView images(){
+    public ModelAndView images() {
         ModelAndView model = new ModelAndView("imagens");
         model.addObject("imagens", service.getImages());
         model.addObject("url", folderPath);

@@ -36,14 +36,12 @@ body{
 }
 
 main{
-    min-height: 80vh;
+    min-height: 90vh;
     max-height: fit-content;
 
-    margin-top:15vh;
-
     padding-inline: 20vw;
-    padding-top: 10vh;
-    padding-bottom: 10vh
+    padding-top: 20vh;
+    padding-bottom: 20vh;
 }
 
 .grayBtn{

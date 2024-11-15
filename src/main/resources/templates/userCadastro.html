@@ -1,8 +1,8 @@
 <!--HEADER -->
 <div th:replace="fragments/header"></div>
 <!-- CONTENT -->
-<main style="position:relative; padding:0px;">
-    <div class="d-flex justify-content-center align-items-center" style="position:absolute;height:100%; width:100%;">
+<main style="display:flex; align-items:center; justify-content:center; margin: 0px; min-height: 90vh;">
+    <div class="d-flex justify-content-center align-items-center">
         <div class="container row pt-2 pb-2 loginWrapper borderGradient ">
             <!-- Exibe a mensagem de erro caso o login falhe -->
             <div th:if="${param.error}" class="error-message" style="color:#fff">

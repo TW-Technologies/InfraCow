@@ -25,7 +25,7 @@
                     Identificador: <span th:text="${animal.codigoIdentificacao}"></span> /
                     Idade: <span th:text="${animal.idade}"></span>
                 </h2>
-                <div class="collapse" th:id="'collapse' + ${animal.id}" th:each="imagem : ${animal.imagens}">
+                <div class="collapse show" th:id="'collapse' + ${animal.id}" th:each="imagem : ${animal.imagens}">
                     <div class="d-flex flex-column align-items-start analiseItem mt-3 mb-3">
                         <h3>Informações Adicionais: <span th:text="${imagem.informacoesAdicionaisAnimal}"></span></h3>
                         <h3>Peso: <span th:text="${animal.peso}"></span>Kg</h3>

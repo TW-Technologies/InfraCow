@@ -17,15 +17,11 @@ public class Util {
 
         for (int i = 0; i < middle; i++) {
             left[i] = array[i];
-            System.out.println(left[i].getIdade());
         }
         for (int i = middle; i < n; i++) {
             right[i - middle] = array[i];
-            System.out.println(right[i - middle].getIdade());
         }
-        for (int i = 0; i < n; i++) {
-            System.out.println(array[i].getIdade());
-        }
+
 
         mergeSort(left, middle);
         mergeSort(right, n - middle);

@@ -1,8 +1,10 @@
 package com.infracow.program.services;
 
+import com.infracow.program.models.Analise;
 import com.infracow.program.models.Imagem;
 import com.infracow.program.repositories.ImagemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,6 +19,8 @@ public class ImagemService {
 
     @Autowired
     private ImagemRepository repository;
+
+
 
     public Imagem addImagem(String path, Imagem obj, MultipartFile file) throws IOException {
         //Inserir Imagem na pasta
@@ -37,5 +41,12 @@ public class ImagemService {
     public List<Imagem> getImages(){
         return repository.findAll();
     }
+
+    public Imagem getLastImageByAnimal(Long animalId){
+        return repository.getLastImageByAnimal(animalId);
+    }
+
+
+
 
 }

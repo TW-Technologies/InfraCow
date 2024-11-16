@@ -100,19 +100,10 @@ public class ImageController {
             analise.setResultadosAnalise("Positivo");
             analiseService.analiseAdd(analise);
 
-
-
         } else {
             return "redirect:/imagem/cadastroImagem";
         }
         return "redirect:/imagem/cadastroImagem";
     }
 
-    @GetMapping("/images")
-    public ModelAndView images() {
-        ModelAndView model = new ModelAndView("resultados");
-        model.addObject("imagens", service.getImages());
-        model.addObject("url", folderPath);
-        return model;
-    }
 }

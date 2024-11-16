@@ -132,4 +132,12 @@ public class Imagem {
     public void setAnimal(Animal animal) {
         this.animal = animal;
     }
+
+    public List<Analise> getAnalises() {
+        return analises;
+    }
+
+    public void setAnalises(List<Analise> analises) {
+        this.analises = analises;
+    }
 }

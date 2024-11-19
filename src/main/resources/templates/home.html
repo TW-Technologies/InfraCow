@@ -2,38 +2,39 @@
 <div th:insert="~{fragments/header}"></div>
 <!-- CONTENT -->
 <main style="color:#fff; ">
-    <h1 class="homeTitle">Home</h1>
-    <div>
-        <h2 class="text-center">A Doença Respiratória Bovina (DRB)</h2>
-        <p class="homeText mt-3" style="text-align:justify;">A Doença Respiratória Bovina (DRB) é uma condição grave que
-            afeta o sistema respiratório dos
-            bovinos,
-            especialmente em bezerros, podendo evoluir para bronquite, pneumonia e até óbito se não tratada. A DRB é
-            causada por uma combinação de vírus (como IBR, BVD e BRSV) e bactérias, agravada por fatores ambientais como
-            superlotação e ventilação inadequada.</p>
-    </div>
-    <div class="mt-5">
-        <h2 class="text-center">Diagnóstico e Inovação</h2>
-        <div class="row mt-3">
-            <div class="col-md-6 col-sm-12">
-                <p class="homeText" style="text-align:justify;">
-                    Métodos tradicionais de diagnóstico, como exames laboratoriais e avaliação visual, dependem de
-                    estágios
-                    avançados da doença. Nosso projeto inova com o uso de análise termográfica e inteligência
-                    artificial,
-                    proporcionando um diagnóstico precoce e não invasivo.
-                </p>
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <p class="text-center">
-                    <img th:src="@{/images/home_image_analise_example.png}" alt="Input Image Placeholder" width="100%">
-                </p>
-            </div>
-<!--
-            <div class="col-md-2 col-sm-12"></div>
--->
+    <div class="contentWrapper">
+        <h1 class="homeTitle">Home</h1>
+        <div>
+            <h2 class="text-center">A Doença Respiratória Bovina (DRB)</h2>
+            <p class="homeText mt-3" style="text-align:justify;">A Doença Respiratória Bovina (DRB) é uma condição grave
+                que
+                afeta o sistema respiratório dos
+                bovinos,
+                especialmente em bezerros, podendo evoluir para bronquite, pneumonia e até óbito se não tratada. A DRB é
+                causada por uma combinação de vírus (como IBR, BVD e BRSV) e bactérias, agravada por fatores ambientais
+                como
+                superlotação e ventilação inadequada.</p>
         </div>
-
+        <div class="mt-5">
+            <h2 class="text-center">Diagnóstico e Inovação</h2>
+            <div class="row mt-3">
+                <div class="col-md-6 col-sm-12">
+                    <p class="homeText" style="text-align:justify;">
+                        Métodos tradicionais de diagnóstico, como exames laboratoriais e avaliação visual, dependem de
+                        estágios
+                        avançados da doença. Nosso projeto inova com o uso de análise termográfica e inteligência
+                        artificial,
+                        proporcionando um diagnóstico precoce e não invasivo.
+                    </p>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <p class="text-center">
+                        <img th:src="@{/images/home_image_analise_example.png}" alt="Input Image Placeholder"
+                             width="100%">
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 <!-- FOOTER -->

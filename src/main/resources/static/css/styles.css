@@ -36,12 +36,11 @@ body{
 }
 
 main{
-    min-height: 90vh;
+    min-height: 80vh;
     max-height: fit-content;
 
     padding-inline: 20vw;
-    padding-top: 20vh;
-    padding-bottom: 20vh;
+    margin-top:10vh;
 }
 
 .grayBtn{
@@ -57,6 +56,11 @@ main{
 }
 .grayBtn:hover{
     color:#c1c1c1;
+}
+
+.contentWrapper{
+    padding-top:15vh;
+    padding-bottom:15vh;
 }
 
 /* ----- Header ----- */
@@ -80,8 +84,6 @@ header ul li a{
 }
 
 .navbar{
-
-
     min-height: 10vh;
     max-height:fit-content;
 

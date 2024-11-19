@@ -2,34 +2,39 @@
 <div th:replace="fragments/header"></div>
 <!-- CONTENT -->
 <main>
-    <div>
-        <div class="d-flex flex-column align-items-center imagemCadastroWrapper">
-            <form action="#" th:action="@{/imagem/addImagem}" method="post" enctype="multipart/form-data">
-                <h1 class="text-start">Análise de Imagem</h1>
-                <div class="row">
-                    <div class="col-md-4 col-sm-12">
-                        <label for="arquivoInput" class="labelImagemForm">Adicionar Imagem:</label>
-                        <div class="image-upload borderGradient">
-                            <input type="file" name="arquivo" id="arquivoInput" alt="Input For Images" accept="image/*"
-                                   class="form-control" required>
-                            <label for="arquivoInput" class="custom-file-upload-label">
-                                <img th:src="@{/images/image_input_icon.png}" id="imgInput" alt="Input Image Placeholder" width="60%">
-                            </label>
+    <div class="contentWrapper">
+        <div>
+            <div class="d-flex flex-column align-items-center imagemCadastroWrapper">
+                <form action="#" th:action="@{/imagem/addImagem}" method="post" enctype="multipart/form-data">
+                    <h1 class="text-start">Análise de Imagem</h1>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12">
+                            <label for="arquivoInput" class="labelImagemForm">Adicionar Imagem:</label>
+                            <div class="image-upload borderGradient">
+                                <input type="file" name="arquivo" id="arquivoInput" alt="Input For Images"
+                                       accept="image/*"
+                                       class="form-control" required>
+                                <label for="arquivoInput" class="custom-file-upload-label">
+                                    <img th:src="@{/images/image_input_icon.png}" id="imgInput"
+                                         alt="Input Image Placeholder" width="60%">
+                                </label>
+                            </div>
                         </div>
+                        <div class="col-md-8 col-sm-12">
+                            <label for="comentarioExtraInput" class="labelImagemForm">Selecionar Animal:</label>
+                            <br>
+                            <select name="idAnimal" id="idAnimalInput" class="form-select">
+                                <option th:each="animal : ${listaAnimais}" th:value="${animal.id}"
+                                        th:text="'Código: '+ ${animal.codigoIdentificacao} + ' / Peso: ' + ${animal.peso} + 'Kg / Idade: ' +  ${animal.idade} "></option>
+                            </select>
+                            <br>
+                            <label for="comentarioExtraInput" class="labelImagemForm">Informaçoes Adicionais:</label>
+                            <input type="text" name="comentarioExtra" id="comentarioExtraInput" class="form-control">
+                        </div>
+                        <input class="btn grayBtn mt-5" type="submit" value="Enviar Imagem para análise">
                     </div>
-                    <div class="col-md-8 col-sm-12">
-                        <label for="comentarioExtraInput" class="labelImagemForm">Selecionar Animal:</label>
-                        <br>
-                        <select name="idAnimal" id="idAnimalInput" class="form-select">
-                            <option th:each="animal : ${listaAnimais}" th:value="${animal.id}" th:text="'Código: '+ ${animal.codigoIdentificacao} + ' / Peso: ' + ${animal.peso} + 'Kg / Idade: ' +  ${animal.idade} "></option>
-                        </select>
-                        <br>
-                        <label for="comentarioExtraInput" class="labelImagemForm">Informaçoes Adicionais:</label>
-                        <input type="text" name="comentarioExtra" id="comentarioExtraInput" class="form-control">
-                    </div>
-                    <input class="btn grayBtn mt-5" type="submit" value="Enviar Imagem para análise">
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </main>

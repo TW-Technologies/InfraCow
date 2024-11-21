@@ -3,7 +3,7 @@
 <!-- ABOUT THE PROJECT -->
 # InfraCow
 <p align="center">
- <!-- <img src="https://github.com/SouzaDiegoCl/Currency-Converter-AndroidApp/blob/main/UTILS/exampleReadme.jpeg" width="250">  -->
+ <img src="https://github.com/TW-Technologies/InfraCow/blob/main/src/main/resources/static/images/screenshot_tela.png" width="90%"> 
 </p>
 <!--  [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 

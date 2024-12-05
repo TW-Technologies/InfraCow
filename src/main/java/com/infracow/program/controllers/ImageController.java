@@ -97,7 +97,7 @@ public class ImageController {
             Analise analise = new Analise();
             analise.setImagem(lastImageAdded);
             analise.setDataAnalise(new Date());
-            analise.setResultadosAnalise("Positivo");
+            analise.setResultadosAnalise("infectado");
             analiseService.analiseAdd(analise);
 
         } else {

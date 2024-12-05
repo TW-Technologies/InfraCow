@@ -13,8 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.thymeleaf.expression.Arrays;
 
 import java.awt.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +45,9 @@ public class AnimalController {
         //Dashboard Data:
         int[] data_graficoPizzaRelacaoTotal = service.getPizzaDashboardDataOfAnimals(arrayAnimais);
         int[] data_graficoColunaCasosMensais = service.getGraficoColunaDataIndíciosMensais(arrayAnimais);
-
+        for(int dado : data_graficoPizzaRelacaoTotal ){
+            System.out.println("aaa"+ dado);
+        }
         model.addObject("data_graficoPizzaRelacaoTotal", data_graficoPizzaRelacaoTotal);
         model.addObject("data_graficoColunaCasosMensais",  data_graficoColunaCasosMensais);
 

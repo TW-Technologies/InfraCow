@@ -41,7 +41,7 @@ public class AnimalService {
         return repository.findById(id).orElseThrow(() -> new UsernameNotFoundException("Animal Não Encontrado"));
     }
 
-    public List<Analise>  getAnimalsAnalisesByDate(LocalDateTime startDate, LocalDateTime endDate) {
+    public List<Analise> getAnimalsAnalisesByDate(LocalDateTime startDate, LocalDateTime endDate) {
         return repository.findAnimalsAnalisesByDate(startDate, endDate);
     }
 
@@ -54,17 +54,24 @@ public class AnimalService {
 
         for (int i = 0; i < animaisList.length; i++) {
             Imagem lastImagem = imagemService.getLastImageByAnimal(animaisList[i].getId());
-            Analise lastImagemAnalise = analiseService.getLastAnaliseByImage(lastImagem.getId());
-            switch (lastImagemAnalise.getResultadosAnalise()) {
-                case "infectado":
-                    qtd_animaisInfectado++;
-                    break;
-                case "saudavel":
-                    qtd_animaisSaudaveis++;
-                    break;
-                default:
-                    qtd_anaimaisNaoAnalisados++;
-                    break;
+            if (lastImagem != null) {
+                Analise lastImagemAnalise = analiseService.getLastAnaliseByImage(lastImagem.getId());
+                System.out.println("bbbbbbbb" + lastImagemAnalise.getResultadosAnalise());
+                if (lastImagemAnalise != null) {
+                    switch (lastImagemAnalise.getResultadosAnalise()) {
+                        case "infectado":
+                            qtd_animaisInfectado++;
+                            break;
+                        case "saudavel":
+                            qtd_animaisSaudaveis++;
+                            break;
+                        default:
+                            qtd_anaimaisNaoAnalisados++;
+                            break;
+                    }
+                }
+            } else {
+                qtd_anaimaisNaoAnalisados++;
             }
         }
         data_graficoPizzaRelacaoTotal[0] = qtd_animaisInfectado;
@@ -111,7 +118,7 @@ public class AnimalService {
                 LocalDateTime endDate = startDate.with(TemporalAdjusters.lastDayOfMonth());
 
                 // Busca o total de animais infectados para o mês atual
-                data_GraficoColunaIndíciosMensais[i] = countAnimalsWithAnalysesInPeriod(startDate, endDate)     ;
+                data_GraficoColunaIndíciosMensais[i] = countAnimalsWithAnalysesInPeriod(startDate, endDate);
             }
         }
 

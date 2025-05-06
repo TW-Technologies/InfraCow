@@ -14,6 +14,7 @@ const createAnimal = async (req, res) => {
   try {
     const { name, weight, age, image, idCode } = req.body;
     await animalService.Create(name, weight, age, image, idCode);
+    res.status(201)
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "Erro interno do servidor " });

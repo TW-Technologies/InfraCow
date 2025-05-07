@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+// import mongoose from "./config/db-connection.js" - Retirar fora da fatec para teste
 import Animal from "./models/animal.js";
 import Image from "./models/image.js";
 import animalRoutes from './routes/animalRoutes.js'

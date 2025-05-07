@@ -2,9 +2,7 @@ import mongoose from "mongoose";
 
 const imageSchema = new mongoose.Schema({
   name: String,
-  metadados: String,
   captureDate: String,
-  extension: String,
   additionalInformation: String,
   localCapture: String,
   heatmap: [[Number]],

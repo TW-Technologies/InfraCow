@@ -4,7 +4,7 @@ const animalSchema = new mongoose.Schema({
   name: String,
   weight: Number,
   age: Number,
-  image: String,
+  idSensor: String,
   idCode: String,
 });
 

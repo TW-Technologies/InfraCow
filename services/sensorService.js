@@ -1,10 +1,10 @@
-import Image from "../models/image.js";
+import Sensor from "../models/sensor.js";
 
-class imageService {
+class sensorService {
   async getAll() {
     try {
-      const images = await Image.find();
-      return images;
+      const sensors = await Sensor.find();
+      return sensors;
     } catch (error) {
       console.log(error);
     }
@@ -17,22 +17,22 @@ class imageService {
     heatmap
   ) {
     try {
-      const newImage = new Image({
+      const newSensor = new Sensor({
         name,
         captureDate,
         additionalInformation,
         localCapture,
         heatmap,
       });
-      await newImage.save();
+      await newSensor.save();
     } catch (error) {
       console.log(error);
     }
   }
   async Delete(id) {
     try {
-      await Image.findByIdAndDelete(id);
-      console.log(`A imagem com a id: ${id} foi deletado`);
+      await Sensor.findByIdAndDelete(id);
+      console.log(`O sensor com a id: ${id} foi deletado`);
     } catch (error) {
       console.log(error);
     }
@@ -46,7 +46,7 @@ class imageService {
     heatmap
   ) {
     try {
-      const updatedImage = await Image.findByIdAndUpdate(
+      const updatedSensor = await Sensor.findByIdAndUpdate(
         id,
         {
           name,
@@ -57,20 +57,20 @@ class imageService {
         },
         { new: true }
       );
-      console.log(`Dados da Imagem com a id: ${id} alterados com sucesso`);
-      return updatedImage;
+      console.log(`Dados do Sensor com a id: ${id} alterados com sucesso`);
+      return updatedSensor;
     } catch (error) {
       console.log(error);
     }
   }
   async getOne(id) {
     try {
-      const image = await Image.findOne({ _id: id });
-      return image;
+      const sensor = await Sensor.findOne({ _id: id });
+      return sensor;
     } catch (error) {
       console.log(error);
     }
   }
 }
 
-export default new imageService();
+export default new sensorService();

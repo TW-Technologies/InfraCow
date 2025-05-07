@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const imageSchema = new mongoose.Schema({
+const sensorSchema = new mongoose.Schema({
   name: String,
   captureDate: String,
   additionalInformation: String,
@@ -8,6 +8,6 @@ const imageSchema = new mongoose.Schema({
   heatmap: [[Number]],
 });
 
-const Image = mongoose.model("Image", imageSchema);
+const Sensor = mongoose.model("Image", sensorSchema);
 
-export default Image;
+export default Sensor;

@@ -1,21 +1,21 @@
 import { ObjectId } from "mongodb";
-import imageService from "../services/imageService.js";
+import sensorService from "../services/sensorService.js";
 
-const getAllImages = async (req, res) => {
+const getAllSensors = async (req, res) => {
   try {
-    const images = await imageService.getAll();
-    res.status(200).json({ images: images });
+    const sensors = await sensorService.getAll();
+    res.status(200).json({ sensors: sensors });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "Erro interno do servidor" });
   }
 };
 
-const createImage = async (req, res) => {
+const createSensor = async (req, res) => {
   try {
     const { name, captureDate, additionalInformation, localCapture, heatmap } =
       req.body;
-    await imageService.Create(
+    await sensorService.Create(
       name,
       captureDate,
       additionalInformation,
@@ -29,11 +29,11 @@ const createImage = async (req, res) => {
   }
 };
 
-const deleteImage = async (req, res) => {
+const deleteSensor = async (req, res) => {
   try {
     if (ObjectId.isValid(req.params.id)) {
       const id = req.params.id;
-      imageService.Delete(id);
+      sensorService.Delete(id);
       res.sendStatus(204);
     } else {
       res.sendStatus(400);
@@ -44,7 +44,7 @@ const deleteImage = async (req, res) => {
   }
 };
 
-const updateImage = async (req, res) => {
+const updateSensor = async (req, res) => {
   try {
     if (ObjectId.isValid(req.params.id)) {
       const id = req.params.id;
@@ -55,7 +55,7 @@ const updateImage = async (req, res) => {
         localCapture,
         heatmap,
       } = req.body;
-      const image = await imageService.Update(
+      const sensor = await sensorService.Update(
         id,
         name,
         captureDate,
@@ -63,7 +63,7 @@ const updateImage = async (req, res) => {
         localCapture,
         heatmap
       );
-      res.status(200).json({ image });
+      res.status(200).json({ sensor });
     } else {
       res.sendStatus(400);
     }
@@ -73,15 +73,15 @@ const updateImage = async (req, res) => {
   }
 };
 
-const getOneImage = async (req, res) => {
+const getOneSensor = async (req, res) => {
   try {
     if (ObjectId.isValid(req.params.id)) {
       const id = req.params.id;
-      const image = await imageService.getOne(id);
-      if (!image) {
+      const sensor = await sensorService.getOne(id);
+      if (!sensor) {
         res.sendStatus(404);
       } else {
-        res.status(200).json({ image });
+        res.status(200).json({ sensor });
       }
     } else {
       res.sendStatus(400);
@@ -93,9 +93,9 @@ const getOneImage = async (req, res) => {
 };
 
 export default {
-  getAllImages,
-  createImage,
-  deleteImage,
-  updateImage,
-  getOneImage,
+  getAllSensors,
+  createSensor,
+  deleteSensor,
+  updateSensor,
+  getOneSensor,
 };

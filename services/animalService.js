@@ -10,13 +10,13 @@ class animalService {
     }
   }
 
-  async Create(name, weight, age, image, idCode) {
+  async Create(name, weight, age, idSensor, idCode) {
     try {
       const newAnimal = new Animal({
         name,
         weight,
         age,
-        image,
+        idSensor,
         idCode,
       });
       await newAnimal.save();
@@ -32,7 +32,7 @@ class animalService {
       console.log(error);
     }
   }
-  async Update(id, name, weight, age, image, idCode) {
+  async Update(id, name, weight, age, idSensor, idCode) {
     try {
       const updateAnimal = await Animal.findByIdAndUpdate(
         id,
@@ -40,7 +40,7 @@ class animalService {
           name,
           weight,
           age,
-          image,
+          idSensor,
           idCode,
         },
         { new: true }

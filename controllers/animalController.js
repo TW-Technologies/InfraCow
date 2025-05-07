@@ -14,8 +14,8 @@ const getAllAnimals = async (req, res) => {
 
 const createAnimal = async (req, res) => {
   try {
-    const { name, weight, age, image, idCode } = req.body;
-    await animalService.Create(name, weight, age, image, idCode);
+    const { name, weight, age, idSensor, idCode } = req.body;
+    await animalService.Create(name, weight, age, idSensor, idCode);
     res.status(201);
   } catch (error) {
     console.log(error);
@@ -42,13 +42,13 @@ const updateAnimal = async (req, res) => {
   try {
     if (ObjectId.isValid(req.params.id)) {
       const id = req.params.id;
-      const { name, weight, age, image, idCode } = req.body;
+      const { name, weight, age, idSensor, idCode } = req.body;
       const animal = await animalService.Update(
         id,
         name,
         weight,
         age,
-        image,
+        idSensor,
         idCode
       );
       res.status(200).json({ animal });

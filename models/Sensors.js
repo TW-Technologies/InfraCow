@@ -8,6 +8,6 @@ const sensorSchema = new mongoose.Schema({
   heatmap: [[Number]],
 });
 
-const Sensor = mongoose.model("Image", sensorSchema);
+const Sensor = mongoose.model("Sensor", sensorSchema);
 
 export default Sensor;

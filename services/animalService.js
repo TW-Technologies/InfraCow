@@ -1,4 +1,4 @@
-import Animal from "../models/animal.js";
+import Animal from "../models/Animals.js";
 
 class animalService {
   async getAll() {

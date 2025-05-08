@@ -1,4 +1,4 @@
-import Sensor from "../models/sensor.js";
+import Sensor from "../models/Sensors.js";
 
 class sensorService {
   async getAll() {

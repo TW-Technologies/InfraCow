@@ -1,15 +1,16 @@
 import express from "express";
 const sensorRoutes = express.Router();
 import sensorController from "../controllers/sensorController.js";
+import Auth from '../middleware/Auth.js'
 
-sensorRoutes.get("/sensors", sensorController.getAllSensors);
+sensorRoutes.get("/sensors", Auth.Authorization, sensorController.getAllSensors);
 
-sensorRoutes.post("/sensors", sensorController.createSensor);
+sensorRoutes.post("/sensors", Auth.Authorization, sensorController.createSensor);
 
-sensorRoutes.delete("/sensors/:id", sensorController.deleteSensor);
+sensorRoutes.delete("/sensors/:id", Auth.Authorization, sensorController.deleteSensor);
 
-sensorRoutes.put("/sensors/:id", sensorController.updateSensor);
+sensorRoutes.put("/sensors/:id", Auth.Authorization, sensorController.updateSensor);
 
-sensorRoutes.get("/sensors/:id", sensorController.getOneSensor);
+sensorRoutes.get("/sensors/:id", Auth.Authorization, sensorController.getOneSensor);
 
 export default sensorRoutes;

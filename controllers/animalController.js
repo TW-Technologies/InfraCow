@@ -1,7 +1,5 @@
 import { ObjectId } from "mongodb";
 import animalService from "../services/animalService.js";
-import Animal from "../models/animal.js";
-
 const getAllAnimals = async (req, res) => {
   try {
     const animals = await animalService.getAll();

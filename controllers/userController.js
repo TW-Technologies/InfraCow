@@ -4,8 +4,8 @@ const JWTSecret = "infracowsecret";
 
 const createUser = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
-    await userService.Create(name, email, password);
+    const { name, email, passkey } = req.body;
+    await userService.Create(name, email, passkey);
     res.sendStatus(201);
   } catch (error) {
     console.log(error);
@@ -15,11 +15,11 @@ const createUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, passkey } = req.body;
     if (email != undefined) {
       const user = await userService.getOne(email);
       if (user != undefined) {
-        if (user.password == password) {
+        if (user.passkey == passkey) {
           jwt.sign(
             { id: user._id, email: user.email },
             JWTSecret,

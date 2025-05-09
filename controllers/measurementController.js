@@ -1,26 +1,25 @@
 import { ObjectId } from "mongodb";
-import sensorService from "../services/sensorService.js";
+import measurementService from "../services/measurementService.js";
 
-const getAllSensors = async (req, res) => {
+const getAllMeasurement = async (req, res) => {
   try {
-    const sensors = await sensorService.getAll();
-    res.status(200).json({ sensors: sensors });
+    const measurement = await measurementService.getAll();
+    res.status(200).json({ measurement: measurement });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "Erro interno do servidor" });
   }
 };
 
-const createSensor = async (req, res) => {
+const createMeasurement = async (req, res) => {
   try {
-    const { name, captureDate, additionalInformation, localCapture, heatmap } =
+    const { captureDate, timeStamp, localCapture, temp } =
       req.body;
-    await sensorService.Create(
-      name,
+    await measurementService.Create(
       captureDate,
-      additionalInformation,
+      timeStamp,
       localCapture,
-      heatmap
+      temp
     );
     res.status(201);
   } catch (error) {
@@ -29,11 +28,11 @@ const createSensor = async (req, res) => {
   }
 };
 
-const deleteSensor = async (req, res) => {
+const deleteMeasurement = async (req, res) => {
   try {
     if (ObjectId.isValid(req.params.id)) {
       const id = req.params.id;
-      sensorService.Delete(id);
+      measurementService.Delete(id);
       res.sendStatus(204);
     } else {
       res.sendStatus(400);
@@ -44,26 +43,24 @@ const deleteSensor = async (req, res) => {
   }
 };
 
-const updateSensor = async (req, res) => {
+const updateMeasurement = async (req, res) => {
   try {
     if (ObjectId.isValid(req.params.id)) {
       const id = req.params.id;
       const {
-        name,
         captureDate,
-        additionalInformation,
+        timeStamp,
         localCapture,
-        heatmap,
+        temp,
       } = req.body;
-      const sensor = await sensorService.Update(
+      const measurement = await measurementService.Update(
         id,
-        name,
         captureDate,
-        additionalInformation,
+        timeStamp,
         localCapture,
-        heatmap
+        temp
       );
-      res.status(200).json({ sensor });
+      res.status(200).json({ measurement });
     } else {
       res.sendStatus(400);
     }
@@ -73,15 +70,15 @@ const updateSensor = async (req, res) => {
   }
 };
 
-const getOneSensor = async (req, res) => {
+const getOneMeasurement = async (req, res) => {
   try {
     if (ObjectId.isValid(req.params.id)) {
       const id = req.params.id;
-      const sensor = await sensorService.getOne(id);
-      if (!sensor) {
+      const measurement = await measurementService.getOne(id);
+      if (!measurement) {
         res.sendStatus(404);
       } else {
-        res.status(200).json({ sensor });
+        res.status(200).json({ measurement });
       }
     } else {
       res.sendStatus(400);
@@ -93,9 +90,9 @@ const getOneSensor = async (req, res) => {
 };
 
 export default {
-  getAllSensors,
-  createSensor,
-  deleteSensor,
-  updateSensor,
-  getOneSensor,
+  getAllMeasurement,
+  createMeasurement,
+  deleteMeasurement,
+  updateMeasurement,
+  getOneMeasurement,
 };

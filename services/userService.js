@@ -1,12 +1,12 @@
 import User from "../models/Users.js";
 
 class userService {
-  async Create(name, email, password) {
+  async Create(name, email, passkey) {
     try {
       const newUser = new User({
         name,
         email,
-        password,
+        passkey,
       });
       await newUser.save();
     } catch (error) {

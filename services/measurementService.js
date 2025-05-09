@@ -1,37 +1,35 @@
-import Sensor from "../models/Sensors.js";
+import Measurement from "../models/Measurement.js";
 
-class sensorService {
+class measurementService {
   async getAll() {
     try {
-      const sensors = await Sensor.find();
-      return sensors;
+      const measurements = await Measurement.find();
+      return measurements;
     } catch (error) {
       console.log(error);
     }
   }
   async Create(
-    name,
     captureDate,
-    additionalInformation,
+    timeStamp,
     localCapture,
-    heatmap
+    temp
   ) {
     try {
-      const newSensor = new Sensor({
-        name,
+      const newMeasurement = new Measurement({
         captureDate,
-        additionalInformation,
+        timeStamp,
         localCapture,
-        heatmap,
+        temp,
       });
-      await newSensor.save();
+      await newMeasurement.save();
     } catch (error) {
       console.log(error);
     }
   }
   async Delete(id) {
     try {
-      await Sensor.findByIdAndDelete(id);
+      await Measurement.findByIdAndDelete(id);
       console.log(`O sensor com a id: ${id} foi deletado`);
     } catch (error) {
       console.log(error);
@@ -39,38 +37,36 @@ class sensorService {
   }
   async Update(
     id,
-    name,
     captureDate,
-    additionalInformation,
+    timeStamp,
     localCapture,
-    heatmap
+    temp,
   ) {
     try {
-      const updatedSensor = await Sensor.findByIdAndUpdate(
+      const updatedMeasurement = await Measurement.findByIdAndUpdate(
         id,
         {
-          name,
           captureDate,
-          additionalInformation,
+          timeStamp,
           localCapture,
-          heatmap,
+          temp,
         },
         { new: true }
       );
       console.log(`Dados do Sensor com a id: ${id} alterados com sucesso`);
-      return updatedSensor;
+      return updatedMeasurement;
     } catch (error) {
       console.log(error);
     }
   }
   async getOne(id) {
     try {
-      const sensor = await Sensor.findOne({ _id: id });
-      return sensor;
+      const measurement = await Measurement.findOne({ _id: id });
+      return measurement;
     } catch (error) {
       console.log(error);
     }
   }
 }
 
-export default new sensorService();
+export default new measurementService();

@@ -1,8 +1,10 @@
 import express from "express";
 import mongoose from "./config/db-connection.js"
+
 import Bovino from "./models/Bovinos.js";
 import Measurement from "./models/Measurement.js";
 import User from "./models/Users.js";
+
 import bovinoRoutes from "./routes/bovinoRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import measurementRoutes from "./routes/measurementRoutes.js";

@@ -24,6 +24,7 @@ class bovinoService {
       console.log(error);
     }
   }
+
   async Delete(id) {
     try {
       await Bovino.findByIdAndDelete(id);
@@ -32,6 +33,7 @@ class bovinoService {
       console.log(error);
     }
   }
+
   async Update(id, name, weight, birth, idSensor, id_RFID) {
     try {
       const updateBovino = await Bovino.findByIdAndUpdate(
@@ -51,6 +53,7 @@ class bovinoService {
       console.log(error);
     }
   }
+  
   async getOne(id) {
     try {
       const bovino = await Bovino.findOne({ _id: id });

@@ -1,6 +1,7 @@
 import Measurement from "../models/Measurement.js";
 
 class measurementService {
+
   async getAll() {
     try {
       const measurements = await Measurement.find();
@@ -9,6 +10,7 @@ class measurementService {
       console.log(error);
     }
   }
+
   async Create(
     captureDate,
     timeStamp,
@@ -27,6 +29,7 @@ class measurementService {
       console.log(error);
     }
   }
+
   async Delete(id) {
     try {
       await Measurement.findByIdAndDelete(id);
@@ -35,6 +38,7 @@ class measurementService {
       console.log(error);
     }
   }
+
   async Update(
     id,
     captureDate,
@@ -59,6 +63,7 @@ class measurementService {
       console.log(error);
     }
   }
+  
   async getOne(id) {
     try {
       const measurement = await Measurement.findOne({ _id: id });

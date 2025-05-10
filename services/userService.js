@@ -1,6 +1,7 @@
 import User from "../models/Users.js";
 
 class userService {
+
   async Create(name, email, passkey) {
     try {
       const newUser = new User({
@@ -13,6 +14,7 @@ class userService {
       console.log(error);
     }
   }
+  
   async getOne(email) {
     try {
       const user = await User.findOne({ email: email });

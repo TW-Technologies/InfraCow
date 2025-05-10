@@ -1,5 +1,6 @@
 import { ObjectId } from "mongodb";
 import bovinoService from "../services/bovinoService.js";
+
 const getAllBovinos = async (req, res) => {
   try {
     const bovinos = await bovinoService.getAll();
